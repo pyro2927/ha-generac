@@ -110,15 +110,10 @@ class GeneracApiClient:
                     "Unknown apparatus type %s %s", apparatus.type, apparatus.name
                 )
                 continue
-            # Try v5 apparatus details first, fallback to v1
+            # Use v1 apparatus details (more reliable than v5)
             detail_json = await self.get_endpoint(
-                f"/v5/Apparatus/{apparatus.apparatusId}"
+                f"/v1/Apparatus/details/{apparatus.apparatusId}"
             )
-            if detail_json is None:
-                # Fallback to v1 API
-                detail_json = await self.get_endpoint(
-                    f"/v1/Apparatus/details/{apparatus.apparatusId}"
-                )
             if detail_json is None:
                 _LOGGER.debug(
                     f"Could not decode respose from /v1/Apparatus/details/{apparatus.apparatusId}"

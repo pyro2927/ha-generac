@@ -62,7 +62,7 @@ Enhanced plugin to use mobile app's v5 API endpoints with expanded sensor suppor
 
 **API Improvements:**
 - **Apparatus List**: `/api/v5/Apparatus/list` with v2 fallback
-- **Apparatus Details**: `/api/v5/Apparatus/{id}` with v1 fallback 
+- **Apparatus Details**: `/api/v1/Apparatus/details/{id}` (more reliable than v5)
 - **Property Type Mapping**: Updated for v5 API property types
 - **Enhanced Data Models**: Added v5-specific fields and structures
 
